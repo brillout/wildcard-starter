@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static('../frontend'))
+app.use(express.static('./frontend'))
 
 app.all('/wildcard/*' , async (req, res) => {
   assert.internal(req.url);
@@ -29,9 +29,6 @@ app.all('/wildcard/*' , async (req, res) => {
   res.type(responseProps.contentType);
   res.send(responseProps.body);
 });
-
-// Serve our frontend
-app.use(express.static('client/dist', {extensions: ['html']}));
 
 app.listen(3000);
 
