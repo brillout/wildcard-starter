@@ -8,6 +8,7 @@
     "prod:server": "export NODE_ENV='production' && node ./server"
   },
   "dependencies": {
+    "@brillout/proto-db": "^0.1.0",
     "core-js": "^3.3.2",
     "express": "^4.17.1",
     "react": "^16.0.0",

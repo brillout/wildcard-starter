@@ -1,7 +1,9 @@
-node_modules/
+data.json
 
 .cache/
 dist/
+
+node_modules/
 
 npm-debug.log*
 yarn-error.log
