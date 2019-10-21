@@ -7,10 +7,13 @@
     "prod:build": "parcel build frontend/index.html"
   },
   "dependencies": {
+    "core-js": "^3.3.2",
     "express": "^4.17.1",
+    "regenerator-runtime": "^0.13.3",
     "wildcard-api": "^0.7.3"
   },
   "devDependencies": {
+    "nodemon": "^1.19.4",
     "parcel": "^1.12.4",
     "yarn": "^1.19.1"
   }

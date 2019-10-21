@@ -1,7 +1,7 @@
 const assert = require('@brillout/reassert');
 const express = require('express');
 const {getApiResponse} = require('wildcard-api');
-require('./api');
+require('../api');
 
 const app = express();
 
