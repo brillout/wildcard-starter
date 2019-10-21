@@ -1,35 +1,16 @@
-const assert = require('@brillout/reassert');
 const express = require('express');
-const {getApiResponse} = require('wildcard-api');
-require('../api');
+const frontend = require('./frontend');
+const wildcard = require('./wildcard');
 
-const app = express();
+const server = express();
 
-app.use(express.json());
+server.use(wildcard);
+server.use(frontend);
 
-app.use(express.static('./frontend'))
+start(server);
 
-app.all('/wildcard/*' , async (req, res) => {
-  assert.internal(req.url);
-  assert.internal(req.method);
-  assert.internal('body' in req);
-  assert.internal(req.method!=='POST' || req.body.constructor===Array);
-  assert.internal(req.headers.constructor===Object);
-
-  const requestProps = {
-    url: req.url,
-    method: req.method,
-    body: req.body,
-    headers: req.headers,
-  };
-
-  const responseProps = await getApiResponse(requestProps);
-
-  res.status(responseProps.statusCode);
-  res.type(responseProps.contentType);
-  res.send(responseProps.body);
-});
-
-app.listen(3000);
-
-console.log('Server is running, go to http://localhost:3000')
+function start() {
+  const port = process.env.PORT || 3000;
+  server.listen(port);
+  console.log('Server is running at http://localhost:'+port);
+}
