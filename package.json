@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "yarn dev:frontend & yarn dev:server",
-    "dev:frontend": "parcel frontend/index.html",
+    "dev:frontend": "parcel watch frontend/index.html",
     "dev:server": "nodemon ./server",
     "prod": "yarn prod:build",
     "prod:build": "parcel build frontend/index.html"
