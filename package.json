@@ -1,15 +1,17 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn dev:frontend & yarn dev:server",
+    "dev:frontend": "parcel frontend/index.html",
+    "dev:server": "nodemon ./server",
+    "prod": "yarn prod:build",
+    "prod:build": "parcel build frontend/index.html"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "wildcard-api": "^0.7.1"
+    "wildcard-api": "^0.7.3"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "yarn": "^1.19.1"
   }
 }

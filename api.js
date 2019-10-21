@@ -1,5 +1,5 @@
 const {endpoints} = require('wildcard-api');
 
-endpoints.hello = async function(name) {
-  return 'Welcome '+name;
+endpoints.getTodos = async function(name) {
+  return [1,'a',23];
 };
