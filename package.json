@@ -1,10 +1,11 @@
 {
   "scripts": {
     "dev": "yarn dev:frontend & yarn dev:server",
-    "dev:frontend": "parcel watch frontend/index.html",
-    "dev:server": "nodemon ./server",
-    "prod": "yarn prod:build",
-    "prod:build": "parcel build frontend/index.html"
+    "dev:frontend": "parcel watch frontend/index.html --out-dir frontend/dist",
+    "dev:server": "nodemon ./server --ignore frontend/",
+    "prod": "yarn prod:build && yarn prod:server",
+    "prod:build": "parcel build frontend/index.html --out-dir frontend/dist",
+    "prod:server": "export NODE_ENV='production' && node ./server"
   },
   "dependencies": {
     "core-js": "^3.3.2",
