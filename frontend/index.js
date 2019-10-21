@@ -12,3 +12,11 @@ ReactDOM.render(
   <TodoList/>,
   document.getElementById('react-root')
 );
+
+if (module.hot) {
+  module.hot.accept(function () {
+    setTimeout(function() {
+      location.reload();
+    }, 300);
+  });
+}

@@ -58,11 +58,3 @@ function NewTodo({setTodos}) {
     setTodos(todos);
   }
 }
-
-if (module.hot) {
-  module.hot.accept(function () {
-    setTimeout(function() {
-      location.reload();
-    }, 300);
-  });
-}
