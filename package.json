@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "yarn dev:server & yarn dev:frontend",
-    "dev:frontend": "parcel watch frontend/index.html --out-dir frontend/dist --no-hmr",
+    "dev:frontend": "parcel watch frontend/index.html --out-dir frontend/dist",
     "dev:server": "nodemon ./server --ignore frontend/ --ignore package.json --ignore yarn.lock",
     "prod": "yarn prod:build && yarn prod:server",
     "prod:build": "parcel build frontend/index.html --out-dir frontend/dist",

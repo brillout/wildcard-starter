@@ -3,23 +3,17 @@ import ReactDOM from "react-dom";
 import fetchData from "./hooks/fetchData";
 import {endpoints} from "wildcard-api/client";
 
-export default App;
-
-function App() {
-  return <TodoList/>;
-}
+export default TodoList;
 
 async function getAllTodos() {
   const todos = await endpoints.getTodos();
-  console.log('List of todos fetch from our Wildcard API:', todos);
+  console.log('List of todos fetched from our Wildcard API endpoint `/wildcard/getTodos`:', JSON.stringify(todos, null, 2));
   return todos;
 }
 
 function TodoList() {
   const initialTodos = fetchData(getAllTodos);
-  console.log('tt', initialTodos);
   const [todos=initialTodos, setTodos] = useState();
-  console.log('tt2', todos);
 
   if( todos===null ) {
     return <>Loading...</>;
@@ -47,7 +41,7 @@ function NewTodo({setTodos}) {
 
   return (
     <form onSubmit={createTodo}>
-      <input type="text" onChange={ev => setText(ev.target.value)} value={text} />
+      <input type="text" onChange={ev => setText(ev.target.value)} value={text} autoFocus/>
       {' '}
       <button type="submit">New To-do</button>
     </form>
@@ -63,4 +57,12 @@ function NewTodo({setTodos}) {
     const todos = await endpoints.getTodos();
     setTodos(todos);
   }
+}
+
+if (module.hot) {
+  module.hot.accept(function () {
+    setTimeout(function() {
+      location.reload();
+    }, 300);
+  });
 }
